@@ -1,10 +1,39 @@
 .ReplayVideoGroup {
-  overflow-x: scroll;
-  ul {
-    list-style-type: none;
-    display: flex;
-    li {
-      margin-right: 10px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+
+  > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  &:hover {
+    .control {
+      visibility: visible;
+    }
+  }
+
+  .control {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    z-index: 1;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .container {
+    min-height: 280px;
+    overflow-x: scroll;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+
+      li {
+        margin-right: 15px;
+      }
     }
   }
 }

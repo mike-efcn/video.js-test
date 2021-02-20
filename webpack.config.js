@@ -9,6 +9,8 @@ dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
+    host: '0.0.0.0',
+    https: true,
     port: 2021,
   },
   entry: path.resolve(__dirname, './src/index.js'),
