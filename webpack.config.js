@@ -1,7 +1,10 @@
+const dotenv = require('dotenv');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 
 module.exports = {
   devServer: {
@@ -49,6 +52,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.videoOptions': JSON.stringify({
+        m3u8List: process.env.M3U8_LIST,
+        mp4List: process.env.MP4_LIST,
+      }),
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
     }),

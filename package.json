@@ -24,9 +24,11 @@
     "start": "webpack serve --mode=development"
   },
   "dependencies": {
+    "hls.js": "^0.14.17",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "video.js": "^7.11.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -35,6 +37,7 @@
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "dotenv": "^8.2.0",
     "html-webpack-plugin": "^4.5.1",
     "less": "^4.1.1",
     "less-loader": "^7.3.0",
