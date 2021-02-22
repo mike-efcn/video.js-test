@@ -824,7 +824,7 @@
     "@babel/plugin-transform-react-jsx-development" "^7.12.12"
     "@babel/plugin-transform-react-pure-annotations" "^7.12.1"
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.12.18"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.12.18.tgz?cache=0&sync_timestamp=1613665318348&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.12.18.tgz#af137bd7e7d9705a412b3caaf991fe6aaa97831b"
   integrity sha1-rxN71+fZcFpBKzyq+ZH+aqqXgxs=
@@ -975,6 +975,20 @@
     mux.js "5.8.0"
     video.js "^6 || ^7"
 
+"@videojs/http-streaming@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.npm.taobao.org/@videojs/http-streaming/download/@videojs/http-streaming-2.6.1.tgz#3b05b07b2b021bdcad63a5ab6549089837589f64"
+  integrity sha1-OwWweysCG9ytY6WrZUkImDdYn2Q=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@videojs/vhs-utils" "^3.0.0"
+    aes-decrypter "3.1.2"
+    global "^4.4.0"
+    m3u8-parser "4.5.2"
+    mpd-parser "0.15.2"
+    mux.js "5.9.1"
+    video.js "^6 || ^7"
+
 "@videojs/vhs-utils@^2.2.1", "@videojs/vhs-utils@^2.3.0":
   version "2.3.0"
   resolved "https://registry.npm.taobao.org/@videojs/vhs-utils/download/@videojs/vhs-utils-2.3.0.tgz#490a3a00dfc1b51d85d5dcf8f8361e2d4c4d1440"
@@ -983,6 +997,15 @@
     "@babel/runtime" "^7.5.5"
     global "^4.3.2"
     url-toolkit "^2.1.6"
+
+"@videojs/vhs-utils@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/@videojs/vhs-utils/download/@videojs/vhs-utils-3.0.0.tgz#998fda2a7519218a30759385d2048b1cd30eba36"
+  integrity sha1-mY/aKnUZIYowdZOF0gSLHNMOujY=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    global "^4.4.0"
+    url-toolkit "^2.2.1"
 
 "@videojs/xhr@2.5.1":
   version "2.5.1"
@@ -1162,6 +1185,16 @@ aes-decrypter@3.1.0:
     "@babel/runtime" "^7.5.5"
     "@videojs/vhs-utils" "^2.2.1"
     global "^4.3.2"
+    pkcs7 "^1.0.4"
+
+aes-decrypter@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.npm.taobao.org/aes-decrypter/download/aes-decrypter-3.1.2.tgz#3545546f8e9f6b878640339a242efe221ba7a7cb"
+  integrity sha1-NUVUb46fa4eGQDOaJC7+Ihunp8s=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@videojs/vhs-utils" "^3.0.0"
+    global "^4.4.0"
     pkcs7 "^1.0.4"
 
 ajv-errors@^1.0.0:
@@ -3142,6 +3175,15 @@ m3u8-parser@4.5.0:
     "@videojs/vhs-utils" "^2.2.1"
     global "^4.3.2"
 
+m3u8-parser@4.5.2:
+  version "4.5.2"
+  resolved "https://registry.npm.taobao.org/m3u8-parser/download/m3u8-parser-4.5.2.tgz#f7d48a60112466e528324624c4e66d52ed341a75"
+  integrity sha1-99SKYBEkZuUoMkYkxOZtUu00GnU=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@videojs/vhs-utils" "^3.0.0"
+    global "^4.4.0"
+
 make-dir@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/make-dir/download/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
@@ -3301,6 +3343,16 @@ mpd-parser@0.15.0:
     global "^4.3.2"
     xmldom "^0.1.27"
 
+mpd-parser@0.15.2:
+  version "0.15.2"
+  resolved "https://registry.npm.taobao.org/mpd-parser/download/mpd-parser-0.15.2.tgz#eb909787cbe99c914897993bafbe5a144e3fdd2c"
+  integrity sha1-65CXh8vpnJFIl5k7r75aFE4/3Sw=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@videojs/vhs-utils" "^3.0.0"
+    global "^4.4.0"
+    xmldom "^0.4.0"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/ms/download/ms-2.0.0.tgz?cache=0&sync_timestamp=1607433872491&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fms%2Fdownload%2Fms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -3338,6 +3390,13 @@ mux.js@5.8.0:
   version "5.8.0"
   resolved "https://registry.npm.taobao.org/mux.js/download/mux.js-5.8.0.tgz#1e1ca927b498de5ae48f1284ccada4d88e47e187"
   integrity sha1-HhypJ7SY3lrkjxKEzK2k2I5H4Yc=
+
+mux.js@5.9.1:
+  version "5.9.1"
+  resolved "https://registry.npm.taobao.org/mux.js/download/mux.js-5.9.1.tgz#7cea6ff5d2a4a0c751818f50ba8868410f98c67c"
+  integrity sha1-fOpv9dKkoMdRgY9QuohoQQ+Yxnw=
+  dependencies:
+    "@babel/runtime" "^7.11.2"
 
 nan@^2.12.1:
   version "2.14.2"
@@ -4763,7 +4822,7 @@ url-parse@^1.4.3, url-parse@^1.4.7:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-url-toolkit@^2.1.6:
+url-toolkit@^2.1.6, url-toolkit@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/url-toolkit/download/url-toolkit-2.2.1.tgz#89009ed3d62a3574de079532a7266c14d2cc1c4f"
   integrity sha1-iQCe09YqNXTeB5UypyZsFNLMHE8=
@@ -5054,6 +5113,11 @@ xmldom@^0.1.27:
   version "0.1.31"
   resolved "https://registry.npm.taobao.org/xmldom/download/xmldom-0.1.31.tgz?cache=0&sync_timestamp=1603760085824&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fxmldom%2Fdownload%2Fxmldom-0.1.31.tgz#b76c9a1bd9f0a9737e5a72dc37231cf38375e2ff"
   integrity sha1-t2yaG9nwqXN+WnLcNyMc84N14v8=
+
+xmldom@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.npm.taobao.org/xmldom/download/xmldom-0.4.0.tgz?cache=0&sync_timestamp=1603760085824&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fxmldom%2Fdownload%2Fxmldom-0.4.0.tgz#8771e482a333af44587e30ce026f0998c23f3830"
+  integrity sha1-h3HkgqMzr0RYfjDOAm8JmMI/ODA=
 
 y18n@^4.0.0:
   version "4.0.1"

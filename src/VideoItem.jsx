@@ -1,75 +1,60 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Hls from 'hls.js';
+import createVideoPlayer from './createVideoPlayer';
 import styles from './VideoItem.module.less';
-
-const poll = async (cb, interval = 50, times = 100) =>
-  new Promise((resolve, reject) => {
-    let count = times;
-    const _poll = () => {
-      const value = cb();
-      if (value) {
-        return resolve(value);
-      }
-
-      if (count < 0) {
-        return reject(Error(`Cannot poll within ${times} * ${interval}ms`));
-      }
-      count -= 1;
-      setTimeout(_poll, interval);
-    };
-    _poll();
-  });
-
 
 const VideoItem = (props) => {
   const { videoOrder, playing, updateVideoStatus } = props;
-  const { videoServerWidth, videoServerHeight } = videoOrder;
-  const elRef = useRef(null);
-  const hlsRef = useRef(null);
-  const dlRef = useRef(false);
+  const { videoServerWidth, videoServerHeight, startTime } = videoOrder;
+  let playerRef = useRef(null);
+  let elRef = useRef(null);
 
   useEffect(() => {
-    if (!Hls.isSupported()) {
-      console.error('Not supported');
-      return
-    }
+    console.info('mount');
+    const player = createVideoPlayer(elRef.current, {
+      width: videoServerWidth,
+      height: videoServerHeight,
+      startTime,
+    });
+    playerRef.current = player;
+    player.init();
+  }, []);
 
-    if (!hlsRef.current) {
-      const hls = new Hls();
-      hlsRef.current = hls;
-      hls.attachMedia(elRef.current);
+  useEffect(() => () => {
+    console.info('unmount');
+    if (playerRef.current) {
+      playerRef.current.destroy();
     }
   }, []);
 
   useEffect(() => {
     (async () => {
-      console.warn(videoOrder.videoUrl);
-      hlsRef.current.loadSource(videoOrder.videoUrl);
-      // await poll(() => downloaded);
-      updateVideoStatus(videoOrder.attendanceRefCode, 'downloaded');
+      if (!videoOrder.videoUrl) {
+        return;
+      }
+
+      await playerRef.current.load(videoOrder.videoUrl);
+      updateVideoStatus(videoOrder.attendanceRefCode, 'ready');
     })();
   }, [videoOrder.videoUrl, videoOrder.attendanceRefCode, updateVideoStatus]);
 
   useEffect(() => {
-    if (!elRef.current) {
-      return;
-    }
-
-    if (playing) {
-      elRef.current.play();
-    }
-    else {
-      elRef.current.pause();
-    }
+    setTimeout(async () => {
+      if (playing) {
+        await playerRef.current.play();
+      } else {
+        await playerRef.current.pause();
+      }
+    }, 0);
   }, [playing]);
 
   return (
     <div className={styles.VideoItem}>
-      <video
-        ref={elRef}
-        width={videoServerWidth}
-        height={videoServerHeight}
-      />
+      <div
+        style={{ width: videoServerWidth, height: videoServerHeight }}
+        data-vjs-player
+      >
+        <video ref={elRef} width={videoServerWidth} height= {videoServerHeight} />
+      </div>
     </div>
   );
 };

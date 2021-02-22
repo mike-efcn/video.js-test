@@ -14,14 +14,14 @@ const videos = (() => {
     startTime: 1613721188000,
     videoServerWidth: 320,
     videoServerHeight: 240,
-    attendanceRefCode: 'b7f239bf-b560-4c60-9f6b-866d74eed3a4'
+    attendanceRefCode: 'b7f239bf-b560-4c60-9f6b-866d7400m3u8'
   })).concat(mp4List.split(',').map((videoUrl, i) => ({
     key: `mp4-${i}`,
     videoUrl,
     startTime: 1613721188000,
     videoServerWidth: 320,
     videoServerHeight: 240,
-    attendanceRefCode: 'b7f239bf-b560-4c60-9f6b-866d74eed3a4'
+    attendanceRefCode: 'b7f239bf-b560-4c60-9f6b-866d74000mp4'
   })));
 })();
 
@@ -29,10 +29,18 @@ const ReplayVideoGroup = () => {
   const [videoOrders, setVideoOrders] = useState([]);
   const [videoStatus, setVideoStatus] = useState(null);
   const [playing, setPlaying] = useState(false);
+  const [cur, setCur] = useState(null);
 
   const updateVideoStatus = useCallback(
     (key, value) => setVideoStatus((prev) => ({ ...prev, [key]: value })),
     [setVideoStatus],
+  );
+
+  const updateProgress = useCallback(
+    (ratio) => {
+      console.info(ratio)
+    },
+    [setCur],
   );
 
   useEffect(() => {
@@ -53,7 +61,7 @@ const ReplayVideoGroup = () => {
     }
 
     const canPlay = Object.keys(videoStatus)
-      .map((key) => videoStatus[key] === 'downloaded')
+      .map((key) => videoStatus[key] === 'ready')
       .every(Boolean);
     if (canPlay) {
       setPlaying(false && true);
@@ -63,7 +71,10 @@ const ReplayVideoGroup = () => {
   return (
     <div className={styles.ReplayVideoGroup}>
       <div className={styles.control}>
-        <ReplayControl setPlaying={setPlaying} />
+        <ReplayControl
+          setPlaying={setPlaying}
+          updateProgress={updateProgress}
+        />
       </div>
       <div className={styles.container}>
         <ul>

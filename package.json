@@ -24,6 +24,7 @@
     "start": "webpack serve --mode=development"
   },
   "dependencies": {
+    "@videojs/http-streaming": "^2.6.1",
     "hls.js": "^0.14.17",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
